@@ -1,8 +1,8 @@
 import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 import { StackNavigator } from 'react-navigation'
-import RootStack from './components'
-import Login from './components/login'
+import RootStack from '../components'
+import Login from '../components/login'
 
 const AhoyNavigator = StackNavigator({
   Login : {
