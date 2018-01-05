@@ -79,11 +79,6 @@ const Screen = (props) => (
   </View>
 );
 
-/*
- * Here we actuall create our TabNavigator. As you can see we're not doing anything fancy.
- * To prevent an error I've simple passed a View to the Capture tab - this won't actually be seen
- * so make it as "cheap" as possible
- */
 const Tabs = TabNavigator({
   home: {
     screen: Timeline,
@@ -111,16 +106,10 @@ const Tabs = TabNavigator({
     screen: (props) => <Screen title="Profile" {...props} />,
   },
 }, {
-  // Instagram has the tabbar on the bottom on iOS and Android
   tabBarPosition: 'bottom',
-  // Specify our custom navbar
   tabBarComponent: TabBar,
 });
 
-/*
- * Place the capture screen into a stack navigator so that we can easily use the existing header.
- * Why reinvent the wheel?
- */
 const CaptureStack = StackNavigator({
   Capture: {
     screen: (props) => <Screen title="Capture" {...props} />,
@@ -129,8 +118,6 @@ const CaptureStack = StackNavigator({
       headerLeft: (
         <Button
           title="Cancel"
-          // Note that since we're going back to a different navigator (CaptureStack -> RootStack)
-          // we need to pass `null` as an argument to goBack.
           onPress={() => navigation.goBack(null)}
         />
       ),
@@ -138,10 +125,6 @@ const CaptureStack = StackNavigator({
   },
 })
 
-/*
- * We need a root stack navigator with the mode set to modal so that we can open the capture screen
- * as a modal. Defaults to the Tabs navigator.
- */
 const RootStack = StackNavigator({
   Tabs: {
     screen: Tabs,

@@ -1,20 +1,12 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import RootStack from './components'
+import store from './store'
+import { Text } from 'react-native'
+import MainStack from './components/main'
 
 export default class App extends React.Component {
   render() {
     return (
-      <RootStack/>
+      <MainStack/>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
