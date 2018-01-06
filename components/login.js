@@ -1,10 +1,11 @@
 import React from 'react'
-import {Text,View} from 'react-native'
+import {Text,View,Alert} from 'react-native'
 import {Button, FormInput } from 'react-native-elements'
 import { TabNavigator } from 'react-navigation'
-import {registerUser} from '../actions'
+import { loginUser } from '../actions'
+import { connect } from 'react-redux'
 import RegisterForm from './registerForm' 
-
+import LoginForm from './loginForm'
 const LoginScreen = (props) => (
   <View style={{ flex:1, alignItems:'center', justifyContent: 'center'}}>
     <Text>Login</Text>
@@ -16,7 +17,7 @@ const LoginScreen = (props) => (
 
 const RootTabs = TabNavigator({
   Login:{
-    screen: LoginScreen
+    screen: LoginForm
   },
   Register:{
     screen: RegisterForm
@@ -24,19 +25,3 @@ const RootTabs = TabNavigator({
 })
 
 export default RootTabs
-// export default class Login extends React.Component{
-//   constructor(props){
-//     super(props)    
-//   }
-//   render(){
-//     return(
-//       <View>
-//         <Text>ini Login</Text>
-//         <FormInput>Username</FormInput>
-//         <FormInput>Password</FormInput>
-//         <Button title="Login" onPress={() => this.props.navigation.navigate('RootStack')} />
-        
-//       </View>
-//     )
-//   }
-// }

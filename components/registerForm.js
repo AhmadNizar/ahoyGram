@@ -1,8 +1,9 @@
 import React from 'react'
-import {View,Text} from 'react-native'
+import { Alert, View, Text } from 'react-native'
 import { FormInput,Button} from 'react-native-elements'
 import {registerUser} from '../actions'
 import store from '../store'
+import { connect } from 'react-redux'
 
 class RegisterScreen extends React.Component{
   constructor(props){
@@ -19,21 +20,48 @@ class RegisterScreen extends React.Component{
       password:this.state.password
     }
     console.log('form', userData)
-    store.dispatch(registerUser(userData))
+    this.props.registerUser(userData)
   }
-
-
 
   render(){
     return(
       <View  style={{ flex:1, alignItems:'center', justifyContent: 'center'}}>
       <Text>Register</Text>
-        <FormInput onChangeText={(username)=> this.setState({username}) }>Your Username</FormInput>
-        <FormInput onChangeText={(password)=> this.setState({password}) }>Your Password</FormInput>
+        <FormInput value={this.state.username} onChangeText={(username)=> this.setState({username}) } placeholder="Username"/>
+        <FormInput value={this.state.password} onChangeText={(password)=> this.setState({password})} placeholder="Password" secureTextEntry={true} />
         <Button title="Register" onPress={() => this.inputSubmit()} />
     </View>
     )
   }
+
+  componentWillReceiveProps (nextProps) {
+    
+   this.setState({
+    username: '',
+    password: ''
+  })
+
+    Alert.alert(
+      'Register Successfull...'
+   )
+  }
+
 } 
 
-export default RegisterScreen
+const mapStateToProps = (state) => {
+  return {
+    userData: state.registerData
+  }
+}
+
+const mapDispatchToProps = (dispatch)=>{
+  return {
+    registerUser: (userData) => dispatch(registerUser(userData))
+  }
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(RegisterScreen)
+ 

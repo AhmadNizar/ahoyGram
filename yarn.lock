@@ -4697,6 +4697,12 @@ react-native-branch@2.0.0-beta.3:
   version "2.0.0-beta.3"
   resolved "https://registry.yarnpkg.com/react-native-branch/-/react-native-branch-2.0.0-beta.3.tgz#2167af86bbc9f964bd45bd5f37684e5b54965e32"
 
+react-native-camera@^0.12.0:
+  version "0.12.0"
+  resolved "https://registry.yarnpkg.com/react-native-camera/-/react-native-camera-0.12.0.tgz#51afa8acf1696d9d973074b6454c5ba2cce6ac18"
+  dependencies:
+    prop-types "^15.5.10"
+
 react-native-dismiss-keyboard@1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/react-native-dismiss-keyboard/-/react-native-dismiss-keyboard-1.0.0.tgz#32886242b3f2317e121f3aeb9b0a585e2b879b49"
@@ -4741,6 +4747,12 @@ react-native-gesture-handler@1.0.0-alpha.30:
   dependencies:
     prop-types "^15.5.10"
 
+react-native-image-progress@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/react-native-image-progress/-/react-native-image-progress-1.0.1.tgz#5ceb4cfefd39d7ebdffab802bc984b5a0fc41021"
+  dependencies:
+    prop-types "^15.5.10"
+
 "react-native-keyboard-aware-scroll-view@https://github.com/GeekyAnts/react-native-keyboard-aware-scroll-view":
   version "0.2.9"
   resolved "https://github.com/GeekyAnts/react-native-keyboard-aware-scroll-view#f4805f254d6cc8e3329f5fb224944401f66655db"
@@ -4752,6 +4764,20 @@ react-native-gesture-handler@1.0.0-alpha.30:
 react-native-maps@0.17.1:
   version "0.17.1"
   resolved "https://registry.yarnpkg.com/react-native-maps/-/react-native-maps-0.17.1.tgz#ab2236341fd984dac8864202ae55331bc262f60c"
+
+react-native-mediapicker@^0.4.1:
+  version "0.4.1"
+  resolved "https://registry.yarnpkg.com/react-native-mediapicker/-/react-native-mediapicker-0.4.1.tgz#fa99daf889a3d36c9955d154b2c1753300d94db1"
+  dependencies:
+    prop-types "^15.6.0"
+    react-native-image-progress "^1.0.1"
+    react-native-nativebutton "^0.1.5"
+
+react-native-nativebutton@^0.1.5:
+  version "0.1.5"
+  resolved "https://registry.yarnpkg.com/react-native-nativebutton/-/react-native-nativebutton-0.1.5.tgz#991421b824526c8e6da0edbc550aedee506091c7"
+  dependencies:
+    prop-types "^15.6.0"
 
 react-native-safe-module@^1.1.0:
   version "1.2.0"

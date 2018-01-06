@@ -1,17 +1,29 @@
-import { REGISTER_USER } from '../actions'
+import { 
+  REGISTER_USER,
+  LOGIN_USER
+ } from '../actions'
+
 const initialState = {
   registerData: '',
-  loginData:''
+  loginStatus: '',
+  userToken: ''
 }
 
 export function ahoyApps(state = initialState, action){
-  console.log(action)
   switch(action.type){
     case 'REGISTER_USER':
-    console.log('masuk reducer')
-    return {...state, registerData:action.payload}
-    default:
-    return state
+      return {...state, registerData: action.payload}
+    case 'LOGIN_USER':
+    if(action.payload === 'Invalid'){
+      return {...state , loginStatus: action.payload}
+    }else{
+      return{
+        ...state,
+        userToken: action.payload
+      }
+    }
+      default:
+      return state
   }
 }
 

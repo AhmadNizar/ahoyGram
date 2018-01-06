@@ -1,11 +1,14 @@
 import React, { Component } from 'react'
-import { View, Text } from 'react-native'
-import { Container } from 'native-base'
+import { View, Text, AsyncStorage } from 'react-native'
+import { Container, } from 'native-base'
 import { Header } from 'react-native-elements'
 
 class Timeline extends Component {
   constructor(props) {
     super(props)
+    this.state={
+      usertoken:''
+    }
   }
   render() {
     return (
@@ -14,10 +17,17 @@ class Timeline extends Component {
           centerComponent={{ text: 'ahoyGram', style: {color: 'black'}}}
         />
         <View>
-          <Text>Timeline</Text>
+          <Text>{this.state.usertoken}</Text>
         </View>
       </Container>
     )
+  }
+  componentWillMount(){
+      AsyncStorage.getItem('ahoyGramToken')
+      .then((dataToken)=>{
+        console.log(dataToken)
+        this.setState({ usertoken : dataToken})
+      })
   }
 }
 

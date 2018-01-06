@@ -5,6 +5,8 @@ import { Icon } from 'react-native-elements'
 import Feather from 'react-native-vector-icons/Feather'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import Timeline from './timeline'
+import UploadContent from './uploadForm'
+import PostPhoto from './postPhoto'
 
 const activeTintColor = '#3478f6'
 const inactiveTintColor = '#929292'
@@ -81,17 +83,7 @@ const Screen = (props) => (
 
 const Tabs = TabNavigator({
   home: {
-    screen: Timeline,
-    navigationOptions: {
-      tabBarLabel: 'Home',
-      tabBarIcon: ({ tintColor, focused }) => (
-        <Ionicons
-          name={focused ? 'ios-home' : 'ios-home-outline'}
-          size={26}
-          style={{ color: tintColor }}
-        />
-      )
-    }
+    screen: Timeline
   },
   search: {
     screen: (props) => <Screen title="Nizar" {...props} />,
@@ -112,7 +104,7 @@ const Tabs = TabNavigator({
 
 const CaptureStack = StackNavigator({
   Capture: {
-    screen: (props) => <Screen title="Capture" {...props} />,
+    screen: UploadContent,
     navigationOptions: ({ navigation }) => ({
       headerTitle: 'Capture',
       headerLeft: (
@@ -123,6 +115,9 @@ const CaptureStack = StackNavigator({
       ),
     }),
   },
+  Image: {
+    screen: PostPhoto
+  }
 })
 
 const RootStack = StackNavigator({
