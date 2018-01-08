@@ -25,7 +25,6 @@ class UploadContent extends Component {
     };
   }
   
-
   async componentWillMount() {
     const { status } = await Permissions.askAsync(Permissions.CAMERA);
     this.setState({ hasCameraPermission: status === 'granted' });
@@ -34,7 +33,7 @@ class UploadContent extends Component {
 
   takePicture = async function() {
     if (this.camera) {
-      this.camera.takePictureAsync().then(data => {
+      this.camera.takePictureAsync({quality: 0.2}).then(data => {
         FileSystem.moveAsync({
           from: data.uri,
           to: `${FileSystem.documentDirectory}photos/Photo_${this.state.photoId}.jpg`,
@@ -43,8 +42,8 @@ class UploadContent extends Component {
             photoId: this.state.photoId + 1,
           });
           Vibration.vibrate();
-          let photoId= this.state.photoId - 1
-          this.props.navigation.navigate('Image',{photoId })          
+          let photoId = this.state.photoId - 1
+          this.props.navigation.navigate('Image',{ photoId, data})          
         });
       });
     }
@@ -70,7 +69,7 @@ class UploadContent extends Component {
     } else {
       return (
         <View style={{ flex: 1 }}>
-          <Camera style={{ flex: 1 }}
+          <Camera style={{ flex: 1, width: 375, height: 375 }}
           ref={ref => {
             this.camera = ref;
           }} 

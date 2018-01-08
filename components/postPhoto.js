@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image, StyleSheet, View, TouchableOpacity, Text, ScrollView } from 'react-native';
+import { Image, StyleSheet, View, TouchableOpacity, Text, ScrollView, AsyncStorage } from 'react-native';
 import { FormInput, Button } from 'react-native-elements'
 import { FileSystem } from 'expo';
 import { connect } from 'react-redux'
@@ -46,6 +46,7 @@ class PostPhoto extends React.Component{
     this.setState({
       urlImage: `${FileSystem.documentDirectory}photos/Photo_${this.props.navigation.state.params.photoId}.jpg`
     })
+    console.log(this.props.navigation.state.params.data)
     // console.log('uolooo',this.state.urlImage)
     // FileSystem.readDirectoryAsync(FileSystem.documentDirectory + `photos`).then(photos => {
     //   this.setState(

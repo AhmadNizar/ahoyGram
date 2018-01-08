@@ -6,6 +6,7 @@ import { loginUser } from '../actions'
 import { connect } from 'react-redux'
 import RegisterForm from './registerForm' 
 import LoginForm from './loginForm'
+
 const LoginScreen = (props) => (
   <View style={{ flex:1, alignItems:'center', justifyContent: 'center'}}>
     <Text>Login</Text>
